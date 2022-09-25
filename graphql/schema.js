@@ -14,8 +14,9 @@ module.exports = buildSchema(`
         phone: String!
         incidentKind: String!
         description: String
-        mapPoint: String!
         timestamp: String!
+        latitude: String!
+        longitude: String!
         isVictim: Boolean!
         isReportedToPolice: Boolean
         policeReport: String
@@ -27,7 +28,8 @@ module.exports = buildSchema(`
         phone: String!
         incidentKind: String!
         description: String
-        mapPoint: String!
+        latitude: String!
+        longitude: String!
         isVictim: Boolean!
         isReportedToPolice: Boolean!
         policeReport: String

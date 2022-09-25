@@ -25,6 +25,10 @@ const userReportSchema = new Schema(
             type: String,
             required: true
         },
+        description: {
+            type: String,
+            required: false
+        },
         mapPoint: {
             type: String,
             required: true

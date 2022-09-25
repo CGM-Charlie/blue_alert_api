@@ -14,11 +14,12 @@ module.exports = buildSchema(`
         genre: String!
         phone: String!
         incidentKind: String!
+        description: String
         mapPoint: String!
         timestamp: String!
         isVictim: Boolean!
         isReportedToPolice: Boolean
-        policeReport: String
+        policeReport: PoliceReport
     }
 
     type PoliceReport {
@@ -31,10 +32,13 @@ module.exports = buildSchema(`
         name: String!
         genre: String!
         phone: String!
-        indicentKind: String!
+        incidentKind: String!
+        description: String
         mapPoint: String!
         timestamp: String!
         isVictim: Boolean!
+        isReportedToPolice: Boolean!
+        policeReportId: ID
     }
 
     input PoliceReportInput {

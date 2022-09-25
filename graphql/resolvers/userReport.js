@@ -41,7 +41,7 @@ module.exports = {
             timestamp: moment().format('DD/MM/YYYY'),
             isVictim: args.userReportInput.isVictim,
             isReportedToPolice: args.userReportInput.isReportedToPolice,
-            policeReportId: args.userReportInput.policeReportId
+            policeReport: args.userReportInput.policeReport
         });
         let createdUserReport;
 
@@ -53,5 +53,16 @@ module.exports = {
         } catch (err) {
             throw err;
         }
+    },
+
+    linkPoliceReportToUserReport: async args => {
+        const filter = { reportKey: args.reportKey }
+        const update = { isReportedToPolice: true, policeReport: args.policeReportId }
+
+        await UserReport.findOneAndUpdate(filter, update);
+
+        const result = await UserReport.findOne(filter);
+        return transformUserReport(result);
+
     }
 };

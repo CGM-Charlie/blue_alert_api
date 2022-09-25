@@ -46,8 +46,8 @@ const userReportSchema = new Schema(
             required: true
         },
         policeReport: {
-            type: Schema.Types.ObjectId,
-            ref: 'PoliceReport'
+            type: String,
+            required: false
         }
     }
 );

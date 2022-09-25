@@ -30,7 +30,7 @@ module.exports = buildSchema(`
         mapPoint: String!
         isVictim: Boolean!
         isReportedToPolice: Boolean!
-        policeReportId: String
+        policeReport: String
     }
 
     type RootQuery {
@@ -40,6 +40,7 @@ module.exports = buildSchema(`
 
     type RootMutation {
         createUserReport(userReportInput: UserReportInput): UserReport
+        linkPoliceReportToUserReport(reportKey: String!, policeReportId: String!): UserReport
     }
 
     schema {

@@ -29,7 +29,11 @@ const userReportSchema = new Schema(
             type: String,
             required: false
         },
-        mapPoint: {
+        latitude: {
+            type: String,
+            required: true
+        },
+        longitude: {
             type: String,
             required: true
         },

@@ -39,7 +39,7 @@ module.exports = {
             description: args.userReportInput.description,
             latitude: args.userReportInput.latitude,
             longitude: args.userReportInput.longitude,
-            timestamp: moment().format('DD/MM/YYYY'),
+            timestamp: moment().toISOString(),
             isVictim: args.userReportInput.isVictim,
             isReportedToPolice: args.userReportInput.isReportedToPolice,
             policeReport: args.userReportInput.policeReport

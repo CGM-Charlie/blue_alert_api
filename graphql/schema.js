@@ -47,6 +47,7 @@ module.exports = buildSchema(`
 
     type RootQuery {
         userReports: [UserReport!]!
+        userReportByReportKey(reportKey: String!): UserReport
         policeReports: [PoliceReport!]!
     }
 

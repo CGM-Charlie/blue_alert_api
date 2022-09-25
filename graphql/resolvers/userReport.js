@@ -19,6 +19,16 @@ module.exports = {
             throw err;
         }
     },
+
+    userReportByReportKey: async args => {
+        try {
+            const userReport = await UserReport.findOne({reportKey: args.reportKey});
+            return transformUserReport(userReport);
+
+        } catch (err) {
+            throw err;
+        }
+    },
     
     createUserReport: async args => {
         console.log(args)

@@ -25,6 +25,10 @@ const userReportSchema = new Schema(
             type: String,
             required: true
         },
+        description: {
+            type: String,
+            required: false
+        },
         mapPoint: {
             type: String,
             required: true
@@ -42,8 +46,8 @@ const userReportSchema = new Schema(
             required: true
         },
         policeReport: {
-            type: Schema.Types.ObjectId,
-            ref: 'PoliceReport'
+            type: String,
+            required: false
         }
     }
 );

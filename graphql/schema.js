@@ -4,7 +4,6 @@ const { buildSchema } = require('graphql');
 // ! -> NOT NULL -> REQUIRED
 
 // TODO: CHECK THE MODEL FOR THE GMAP COORDINATE
-// TODO: CHECK THE MODEL FOR THE POLICE REPORT
 
 module.exports = buildSchema(`
     type UserReport {
@@ -14,6 +13,7 @@ module.exports = buildSchema(`
         genre: String!
         phone: String!
         incidentKind: String!
+        description: String
         mapPoint: String!
         timestamp: String!
         isVictim: Boolean!
@@ -21,34 +21,26 @@ module.exports = buildSchema(`
         policeReport: String
     }
 
-    type PoliceReport {
-        _id: ID!
-        reportKey: String
-        createdAt: String
-    }
-
     input UserReportInput {
         name: String!
         genre: String!
         phone: String!
-        indicentKind: String!
+        incidentKind: String!
+        description: String
         mapPoint: String!
-        timestamp: String!
         isVictim: Boolean!
-    }
-
-    input PoliceReportInput {
-        reportKey: String!
+        isReportedToPolice: Boolean!
+        policeReport: String
     }
 
     type RootQuery {
         userReports: [UserReport!]!
-        policeReports: [PoliceReport!]!
+        userReportByReportKey(reportKey: String!): UserReport
     }
 
     type RootMutation {
         createUserReport(userReportInput: UserReportInput): UserReport
-        createPoliceReport(policeReportInput: PoliceReportInput): PoliceReport
+        linkPoliceReportToUserReport(reportKey: String!, policeReportId: String!): UserReport
     }
 
     schema {

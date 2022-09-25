@@ -1,6 +1,5 @@
 const moment = require('moment');
 const UserReport = require('../../models/userReport');
-const PoliceReport = require('../../models/policeReport');
 const { transformUserReport } = require('./resolverHelpers');
 
 function getRndInteger(min, max) {
@@ -31,8 +30,6 @@ module.exports = {
     },
     
     createUserReport: async args => {
-        console.log(args)
-
         const userReport = new UserReport({
             reportKey: args.userReportInput.name[0] + args.userReportInput.genre[0] + getRndInteger(100, 999).toString(), // TODO: CREAR LLAVE DE REPORTE
             name: args.userReportInput.name,
@@ -51,9 +48,7 @@ module.exports = {
         try {
             const result = await userReport.save();
             createdUserReport = transformUserReport(result);
-
             return createdUserReport;
-
 
         } catch (err) {
             throw err;
